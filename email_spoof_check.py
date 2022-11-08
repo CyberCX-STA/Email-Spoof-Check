@@ -130,7 +130,7 @@ def RecurseSPF(host, depth=0):
 
 	# For each piece in the resolved record
 	for part in spf.split(" "):
-        part = part.strip("+")
+		part = part.strip("+")
 		if part.startswith("ip4"):
 			# Normalise = / : notation
 			cidr = part.replace("=", ":").split(":")[1]
