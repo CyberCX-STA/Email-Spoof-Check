@@ -66,7 +66,8 @@ if not isfile("IPs.txt") or args.refresh_ips:
 			IPs.append(f'{line.split(",")[0]}|DigitalOcean')
 
 	print("Pulling user-registrable Azure CIDRs...")
-	azureIndirect = get("https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519").text.split("\n")
+	azureIndirect = get("https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519", headers={"User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0"}).text.split("\n")
+	print(azureIndirect)
 	for i, line in enumerate(azureIndirect):
 		if "30 seconds" in line:
 			azureDirect = azureIndirect[i+1].split(".json\"")[0].split('"')[-1] + ".json"
