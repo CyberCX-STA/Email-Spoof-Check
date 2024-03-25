@@ -174,7 +174,7 @@ print(PaintY("    " + dmarcColoured + "\n"))
 # =========================== Reporting ===========================
 
 # No SPF record
-if totalIPs == 0 and "v=spf1" not in "".join(recurStr):
+if (totalIPs == 0) (and "v=spf1" not in "".join(recurStr)):
 	Crit("No SPF record is defined", "Mail can be easily spoofed for this domain. Either implement a record, or explicitly set a no-send record for domains not designed to send mail: 'v=spf1 -all'")
 else:
 	Info("SPF record is defined", "Spoofed mail is somewhat prevented")
